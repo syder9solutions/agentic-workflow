@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  agent-app:
+    build: .
+    container_name: opsrescue-agent-service
+    ports:
+      - "8001:8001"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - PORT=8001
+    restart: unless-stopped
